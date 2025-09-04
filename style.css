@@ -1,0 +1,147 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family:'Courier New', Courier, monospace;
+    box-sizing: border-box;
+}
+
+body{
+    background-color:#222;
+}
+
+.container{
+    width: 90%;
+    max-width: 400px;
+    background:linear-gradient(135deg,#00feba,#00CCFF	);
+    color: rgb(255, 255, 255);
+    margin: 100px auto 0;
+    border-radius: 20px;
+    padding: 40px 35px;
+    text-align: center;
+}
+.search{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.search input{
+    border: 0;
+    outline: 0;
+    background: #BFEFFF;
+    color: black;
+    padding: 10px 25px;
+    border-radius: 20px;
+    height: 40px;
+    flex: 1;
+    font-size: 18px;
+    margin-right: 16px;
+}
+.search button{
+    border: 0;
+    outline: 0;
+    background: #BFEFFF;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+.search button img{
+    width: 16px;
+}
+
+.weather-icon{
+    width: 256px;
+    height: 256px;
+    margin-top: 30px;
+}
+
+.tmp {
+    font-size: 60px; 
+    font-weight: 500; 
+}
+.city { 
+    font-size: 50px; 
+    font-weight: 450;
+}
+
+.detail{
+    display:flex;
+    align-content: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    margin-top: 50px;
+}
+
+.col{
+    display: flex;
+    text-align: center;
+    gap: 10px;
+}
+
+.col img{
+    width: 50px;
+}
+.col h3 { 
+    font-size: 15px; 
+    font-weight: 200; 
+}
+.col .humidity, .col .wind { 
+    font-size: 18px; 
+    font-weight: 300;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.loading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 10px;
+}
+.spinner{
+    width: 18px;
+    height: 18px;
+    border: 3px solid rgba(255,255,255,0.35);
+    border-top-color: #fff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+
+
+.is-loading .tmp,
+.is-loading .city,
+.is-loading .humidity,
+.is-loading .wind{
+    position: relative;
+    color: transparent;        
+    background: linear-gradient(90deg,
+            rgba(255,255,255,0.25) 25%,
+            rgba(255,255,255,0.4) 37%,
+            rgba(255,255,255,0.25) 63%);
+    background-size: 400% 100%;
+    animation: shimmer 1.2s ease-in-out infinite;
+    border-radius: 8px;
+}
+.is-loading .weather-icon{
+    position: relative;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+.is-loading .weather-icon {
+    width: 256px; height: 256px; object-fit: contain;
+}
+.is-loading .tmp    { height: 66px;  margin: 8px auto;  }
+.is-loading .city   { height: 56px;  margin: 8px auto;  }
+.is-loading .humidity,
+.is-loading .wind   { height: 22px;  width: 100px; }
+
+@keyframes shimmer { 0% { background-position: 0% 0; } 100% { background-position: 100% 0; } }
+
+@keyframes spin {
+    to { transform: rotate(360deg);}
+}
