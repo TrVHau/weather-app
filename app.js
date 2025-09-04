@@ -30,7 +30,7 @@ function setLoading(isLoading) {
     if (isLoading) {
         els.icon.src = "img/gay.png";
         els.temp.textContent = "--";
-        els.city.textContent = "Đang tải…";
+        els.city.textContent = "--";
         els.humidity.textContent = "--%";
         els.wind.textContent = "--km/h";
     }
@@ -68,10 +68,11 @@ async function getWeather(city) {
     els.icon.src = "img/" + iconFile;
     els.icon.alt = `Mã thời tiết ${cur.weather_code}`;
     } catch (err) {
-    alert("Lỗi: " + err.message);
+        alert("Lỗi: " + err.message);
+        els.icon.src = "img/not-available.png";
     }
     finally {
-        setTimeout(setLoading(false), 2000);
+        setTimeout(setLoading(false), 4000);
     }
 }
 
